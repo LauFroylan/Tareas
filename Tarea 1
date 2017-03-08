@@ -1,0 +1,25 @@
+# Tareas1
+PIB<-read.csv(file.choose()) 
+class(PIB) 
+pi<-ts(PIB[1:19,2], frequency = 1,start = 1961)
+class(pi)
+
+plot(window(pi,start=1961),ylab="PIB Anual", xlab = "AÑO",main = "PIB ANUAL DE MEXICO 1961-1979")
+
+
+#seasonplot(pi, s=1, year.labels = TRUE, 
+ #          main = "PIB PER CAPITA",
+  #         ylab = "Año", col=rainbow(20),year.labels.left = TRUE,pch=10)
+
+
+pib1<-window(pi, start = 1961,end = 1965)
+plot(pib1, main="PIB 1961-1965",xlab = "AÑO",ylab = "PIB PER CAPITA", col="orange")
+
+pib2<-window(pi, start = 1966,end = 1969)
+plot(pib2, main="PIB 1966-1969",xlab = "AÑO",ylab = "PIB PER CAPITA", col="blue")
+
+pib3<-window(pi, start = 1970,end = 1975)
+plot(pib3, main="PIB 1970-1975",xlab = "AÑO",ylab = "PIB PER CAPITA", col="brown")
+
+pib4<-window(pi, start = 1976,end = 1979)
+plot(pib4, main="PIB 1970-1975",xlab = "AÑO",ylab = "PIB PER CAPITA", col="black")
