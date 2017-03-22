@@ -1,0 +1,26 @@
+#realizar la covarianza entre dos variables de una serie de tiempo por medio de las 
+#formulas dadas no con funciones 
+ser<-read.csv(file.choose())
+class(ser)
+des<-ts(ser[1:16,1], frequency = 4,start = 2013)
+pob<-ts(ser[1:16,2], frequency = 4,start = 2013)
+pob
+summary(des)
+summary(pob)
+des1<-des-9.5
+des1
+pob1<-pob-57.71
+pob1
+sum<-des1*pob1
+usq<-0
+sum1<-ts(sum, frequency = 4,start = 2013)
+for(i in 1:16) {
+  usq[i] <- sum1[i]+sum1[i+1]
+  print(usq[i])
+}
+sum
+cov<--113.31/15
+dsdes<-sd (des)
+depob<-sd(pob)
+corre<-cov/(dsdes*depob)
+corre
